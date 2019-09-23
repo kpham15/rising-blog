@@ -2,32 +2,49 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import headerStyles from "./header.module.scss"
+
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+  <header className={headerStyles.header}>
+    <h1 className={headerStyles.title}>{siteTitle}</h1>
+    <ol className={headerStyles.navList}>
+      <li>
         <Link
           to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
+          className={headerStyles.navItem}
+          activeClassName={headerStyles.activeNavItem}
         >
-          {siteTitle}
+          Home
         </Link>
-      </h1>
-    </div>
+      </li>
+      <li>
+        <Link
+          to="/about"
+          className={headerStyles.navItem}
+          activeClassName={headerStyles.activeNavItem}
+        >
+          About
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/teams"
+          className={headerStyles.navItem}
+          activeClassName={headerStyles.activeNavItem}
+        >
+          Teams
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/contact"
+          className={headerStyles.navItem}
+          activeClassName={headerStyles.activeNavItem}
+        >
+          Contact Us
+        </Link>
+      </li>
+    </ol>
   </header>
 )
 
